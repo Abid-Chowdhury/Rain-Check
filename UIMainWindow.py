@@ -15,6 +15,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
     QRadialGradient)
 from PySide2.QtWidgets import *
 
+GLOBAL_STATE = 0
 
 class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
@@ -53,16 +54,16 @@ class Ui_mainWindow(object):
 "	background-color: rgb(0,255,0);\n"
 "	border-radius: 8px;\n"
 "}")
-        self.labelEnterCity = QLabel(self.frame)
-        self.labelEnterCity.setObjectName(u"labelEnterCity")
-        self.labelEnterCity.setGeometry(QRect(0, 50, 320, 60))
+        self.labelLocation = QLabel(self.frame)
+        self.labelLocation.setObjectName(u"labelLocation")
+        self.labelLocation.setGeometry(QRect(0, 50, 320, 60))
         font = QFont()
         font.setFamily(u"Manrope")
         font.setPointSize(32)
         font.setBold(True)
         font.setWeight(75)
-        self.labelEnterCity.setFont(font)
-        self.labelEnterCity.setAlignment(Qt.AlignCenter)
+        self.labelLocation.setFont(font)
+        self.labelLocation.setAlignment(Qt.AlignCenter)
         self.entryCity = QLineEdit(self.frame)
         self.entryCity.setObjectName(u"entryCity")
         self.entryCity.setGeometry(QRect(10, 160, 300, 60))
@@ -102,7 +103,9 @@ class Ui_mainWindow(object):
         self.buttonClose.setText("")
         self.buttonMinimize.setText("")
         self.buttonMaximize.setText("")
-        self.labelEnterCity.setText(QCoreApplication.translate("mainWindow", u"Enter City", None))
+        self.labelLocation.setText(QCoreApplication.translate("mainWindow", u"Location", None))
         self.buttonGo.setText(QCoreApplication.translate("mainWindow", u"Go", None))
     # retranslateUi
 
+    def returnStatus():
+        return GLOBAL_STATE

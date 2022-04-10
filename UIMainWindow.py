@@ -63,7 +63,7 @@ class Ui_mainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.labelLocation.setFont(font)
-        self.labelLocation.setAlignment(Qt.AlignCenter)
+        self.labelLocation.setAlignment(Qt.AlignCenter)        
         self.entryCity = QLineEdit(self.frame)
         self.entryCity.setObjectName(u"entryCity")
         self.entryCity.setGeometry(QRect(10, 160, 300, 60))

@@ -34,7 +34,10 @@ class MainWindow(QMainWindow):
         self.UIMainWindow.frame.mouseMoveEvent = moveWindow
         
         # functions
-        self.UIMainWindow.buttonClose.clicked.connect(lambda: self.close)
+        self.UIMainWindow.buttonClose.clicked.connect(lambda: self.close())
+        self.UIMainWindow.buttonMinimize.clicked.connect(lambda: self.showMinimized())
+        self.UIMainWindow.buttonGo.clicked.connect(lambda: UIFunctions.getWeather(self, self.UIMainWindow.entryCity.text()))
+        
         
         self.show()
         

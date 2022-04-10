@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainWindowySbPQX.ui'
+## Form generated from reading UI file 'mainWindowBELSIe.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -58,12 +58,13 @@ class Ui_mainWindow(object):
         self.labelLocation.setObjectName(u"labelLocation")
         self.labelLocation.setGeometry(QRect(0, 50, 320, 60))
         font = QFont()
-        font.setFamily(u"Manrope")
+        font.setFamily(u"Manrope SemiBold")
         font.setPointSize(32)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setBold(False)
+        font.setWeight(50)
         self.labelLocation.setFont(font)
-        self.labelLocation.setAlignment(Qt.AlignCenter)        
+        self.labelLocation.setStyleSheet(u"")
+        self.labelLocation.setAlignment(Qt.AlignCenter)
         self.entryCity = QLineEdit(self.frame)
         self.entryCity.setObjectName(u"entryCity")
         self.entryCity.setGeometry(QRect(10, 160, 300, 60))
@@ -89,6 +90,22 @@ class Ui_mainWindow(object):
 "	background-color: #8A8AFF;\n"
 "	border-radius: 15px;\n"
 "}")
+        self.labelCityNotFound = QLabel(self.frame)
+        self.labelCityNotFound.setObjectName(u"labelCityNotFound")
+        self.labelCityNotFound.setGeometry(QRect(0, 320, 320, 60))
+        font3 = QFont()
+        font3.setFamily(u"Manrope SemiBold")
+        font3.setPointSize(20)
+        font3.setBold(False)
+        font3.setWeight(50)
+        self.labelCityNotFound.setFont(font3)
+        self.labelCityNotFound.setStyleSheet(u"QLabel {\n"
+"	color: red;\n"
+"}")
+        self.labelCityNotFound.setAlignment(Qt.AlignCenter)
+        self.labelCityNotFound.setHidden(True)
+        
+        
         mainWindow.setCentralWidget(self.centralwidget)
 #if QT_CONFIG(shortcut)
 #endif // QT_CONFIG(shortcut)
@@ -105,6 +122,7 @@ class Ui_mainWindow(object):
         self.buttonMaximize.setText("")
         self.labelLocation.setText(QCoreApplication.translate("mainWindow", u"Location", None))
         self.buttonGo.setText(QCoreApplication.translate("mainWindow", u"Go", None))
+        self.labelCityNotFound.setText(QCoreApplication.translate("mainWindow", u"{city} not found", None))
     # retranslateUi
 
     def returnStatus():

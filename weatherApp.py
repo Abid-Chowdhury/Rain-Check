@@ -7,15 +7,15 @@ from PySide2.QtWidgets import *
 from time import strftime, gmtime
 from requests import get
 
-from UIMainWindow import Ui_mainWindow
-
 from functions import *
+
+from UIMainWindow import *
 
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-        self.ui = Ui_mainWindow()
-        self.ui.setupUi(self)
+        self.UIMainWindow = Ui_mainWindow()
+        self.UIMainWindow.setupUi(self)
 
         # makes window rounded & removes background
         self.setWindowFlag(Qt.FramelessWindowHint)
@@ -31,7 +31,10 @@ class MainWindow(QMainWindow):
                 self.dragPos = event.globalPos()
                 event.accept()
                 
-        self.ui.frame.mouseMoveEvent = moveWindow
+        self.UIMainWindow.frame.mouseMoveEvent = moveWindow
+        
+        # functions
+        self.UIMainWindow.buttonClose.clicked.connect(lambda: self.close)
         
         self.show()
         

@@ -1,9 +1,11 @@
 from requests import get
 from time import strftime, gmtime
 from weatherApp import *
+from UIMainWindow import *
+from UIWeatherWindow import *
 
-def UIFunctions(MainWindow):
-
+class UIFunctions(MainWindow):
+   
     def getWeather(city):
 
         api = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=9f8620325348a6920a0fc0dfaf31ffa2"

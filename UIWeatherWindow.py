@@ -15,6 +15,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
     QRadialGradient)
 from PySide2.QtWidgets import *
 
+GLOBAL_STATE = 0
 
 class Ui_weatherWindow(object):
     def setupUi(self, weatherWindow):
@@ -123,3 +124,5 @@ class Ui_weatherWindow(object):
         self.labelCity_2.setText(QCoreApplication.translate("weatherWindow", u"Saturday | Apr 9 | 10:12", None))
     # retranslateUi
 
+    def returnStatus():
+        return GLOBAL_STATE

@@ -10,13 +10,14 @@ from requests import get
 from functions import *
 
 from UIMainWindow import *
+from UIWeatherWindow import *
 
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
         self.UIMainWindow = Ui_mainWindow()
         self.UIMainWindow.setupUi(self)
-
+        
         # makes window rounded & removes background
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
@@ -37,7 +38,6 @@ class MainWindow(QMainWindow):
         self.UIMainWindow.buttonClose.clicked.connect(lambda: self.close())
         self.UIMainWindow.buttonMinimize.clicked.connect(lambda: self.showMinimized())
         self.UIMainWindow.buttonGo.clicked.connect(lambda: UIFunctions.getWeather(self, self.UIMainWindow.entryCity.text()))
-        
         
         self.show()
         

@@ -1,11 +1,27 @@
+import sys
+from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
+from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
+from PySide2.QtWidgets import *
+
 from requests import get
 from time import strftime, gmtime
+
 from weatherApp import *
 from UIMainWindow import *
 from UIWeatherWindow import *
 
 class UIFunctions(MainWindow):
    
+    def openWeatherWindow(self):
+        self.UIWeatherWindow = Ui_weatherWindow()
+        self.UIWeatherWindow.setupUi(self)
+        
+        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground) 
+        
+        self.show()
+    
     def cityNotFoundError(self, city):
         self.UIMainWindow.labelCityNotFound.setText(f'{city} not found')
         self.UIMainWindow.labelCityNotFound.setHidden(False)   
@@ -30,6 +46,9 @@ class UIFunctions(MainWindow):
             sunrise = strftime('%I:%M:%S %p', gmtime(jsonData['sys']['sunrise'] - 21600))
             sunset = strftime('%I:%M:%S %p', gmtime(jsonData['sys']['sunset'] - 21600))
 
+            self.hide()
+            UIFunctions.openWeatherWindow(self)
+            
         except KeyError:
             UIFunctions.cityNotFoundError(self, city)
         

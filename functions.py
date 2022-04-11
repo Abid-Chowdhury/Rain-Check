@@ -34,7 +34,9 @@ class UIFunctions(MainWindow):
         self.UIWeatherWindow.frame.mouseMoveEvent = moveWindow
 
         # functions
-                       
+        self.UIWeatherWindow.buttonClose.clicked.connect(lambda: self.close())
+        self.UIWeatherWindow.buttonMinimize.clicked.connect(lambda: self.showMinimized())
+                               
         self.show()
     
     def mousePressEvent(self, event):

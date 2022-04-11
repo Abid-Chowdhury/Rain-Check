@@ -88,23 +88,23 @@ class Ui_weatherWindow(object):
 "	background-color: rgba(0,0,0,0)\n"
 "}")
         self.labelCity.setAlignment(Qt.AlignCenter)
-        self.labelCity_2 = QLabel(self.frame)
-        self.labelCity_2.setObjectName(u"labelCity_2")
-        self.labelCity_2.setGeometry(QRect(0, 350, 320, 60))
+        self.labelDay = QLabel(self.frame)
+        self.labelDay.setObjectName(u"labelCity_2")
+        self.labelDay.setGeometry(QRect(0, 350, 320, 60))
         font3 = QFont()
         font3.setFamily(u"Manrope")
         font3.setPointSize(18)
-        self.labelCity_2.setFont(font3)
-        self.labelCity_2.setStyleSheet(u"QLabel {\n"
+        self.labelDay.setFont(font3)
+        self.labelDay.setStyleSheet(u"QLabel {\n"
 "	background-color: rgba(0,0,0,0)\n"
 "}")
-        self.labelCity_2.setAlignment(Qt.AlignCenter)
+        self.labelDay.setAlignment(Qt.AlignCenter)
         self.buttonClose.raise_()
         self.buttonMinimize.raise_()
         self.buttonMaximize.raise_()
         self.labelTemp.raise_()
         self.labelCondition.raise_()
-        self.labelCity_2.raise_()
+        self.labelDay.raise_()
         self.labelCity.raise_()
         weatherWindow.setCentralWidget(self.centralwidget)
 
@@ -121,7 +121,7 @@ class Ui_weatherWindow(object):
         self.labelTemp.setText(QCoreApplication.translate("weatherWindow", u"69\u00b0", None))
         self.labelCondition.setText(QCoreApplication.translate("weatherWindow", u"Cloudy", None))
         self.labelCity.setText(QCoreApplication.translate("weatherWindow", u"London", None))
-        self.labelCity_2.setText(QCoreApplication.translate("weatherWindow", u"Saturday | Apr 9 | 10:12", None))
+        self.labelDay.setText(QCoreApplication.translate("weatherWindow", u"Saturday | Apr 9 | 10:12", None))
     # retranslateUi
 
     def returnStatus():

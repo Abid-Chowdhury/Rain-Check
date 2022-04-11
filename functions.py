@@ -5,7 +5,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFo
 from PySide2.QtWidgets import *
 
 from requests import get
-from time import strftime, gmtime
+from time import strftime, gmtime, localtime
 
 from weatherApp import *
 from UIMainWindow import *
@@ -46,6 +46,14 @@ class UIFunctions(MainWindow):
         self.UIMainWindow.labelCityNotFound.setText(f'{city} not found')
         self.UIMainWindow.labelCityNotFound.setHidden(False)   
         
+    def setWeather(self, city, condition, tempC, tempF, feelsLikeC, feelsLikeF, tempMinC, tempMinF, tempMaxC, tempMaxF, sunrise, sunset):
+        self.UIWeatherWindow.labelTemp.setText(f'{tempF}°')
+        self.UIWeatherWindow.labelCondition.setText(f'{condition}')
+        self.UIWeatherWindow.labelCity.setText(city)
+        
+        t = localtime()
+        self.UIWeatherWindow.labelDay.setText(f'{strftime("%A", t)} | {strftime("%b %d", t)} | {strftime("%I:%M", t)}')
+
     def getWeather(self, city):
         
         try:
@@ -68,6 +76,7 @@ class UIFunctions(MainWindow):
 
             self.hide()
             UIFunctions.openWeatherWindow(self)
+            UIFunctions.setWeather(self, city, condition, tempC, tempF, feelsLikeC, feelsLikeF, tempMinC, tempMinF, tempMaxC, tempMaxF, sunrise, sunset)
             
         except KeyError:
             UIFunctions.cityNotFoundError(self, city)

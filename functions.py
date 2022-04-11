@@ -17,10 +17,28 @@ class UIFunctions(MainWindow):
         self.UIWeatherWindow = Ui_weatherWindow()
         self.UIWeatherWindow.setupUi(self)
         
+        # makes window rounded & removes background
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground) 
         
+        # move window
+        def moveWindow(event):
+            if Ui_weatherWindow.returnStatus() == 1:
+                Ui_weatherWindow.maximize_restore(self)
+            
+            if event.buttons() == Qt.LeftButton:
+                self.move(self.pos() + event.globalPos() - self.dragPos)
+                self.dragPos = event.globalPos()
+                event.accept()
+                
+        self.UIWeatherWindow.frame.mouseMoveEvent = moveWindow
+
+        # functions
+                       
         self.show()
+    
+    def mousePressEvent(self, event):
+        self.dragPos = event.globalPos()
     
     def cityNotFoundError(self, city):
         self.UIMainWindow.labelCityNotFound.setText(f'{city} not found')
